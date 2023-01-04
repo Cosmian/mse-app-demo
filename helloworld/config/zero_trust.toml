@@ -1,0 +1,10 @@
+name="helloworld"
+version="1.0.0"
+project="default"
+plan="free"
+
+[code]
+location="../code"
+python_application="app:app"
+health_check_endpoint="/health"
+docker="ghcr.io/cosmian/mse-pytorch:20230104085621"
