@@ -11,7 +11,7 @@ Two configurations are availables:
 ## Deploy your application
 
 ```console
-$ mse-ctl deploy --path config/zero_trust.toml
+$ mse deploy --path config/zero_trust.toml
 ```
 
 Your application is now ready to be used
@@ -35,7 +35,7 @@ $ curl https://<uuid.cosmian.dev>/
 You can get the certificate and check it using:
 
 ```console
-$ mse-ctl verify --skip-fingerprint "<uuid.cosmian.app>"
+$ mse verify --skip-fingerprint "<uuid.cosmian.app>"
 ```
 
 You can now query the microservice:

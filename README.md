@@ -1,6 +1,6 @@
-# MSE App Demo
+# MSE App Examples
 
-You can find several app demos runnable in a MSE architecture.
+You can find several app examples runnable in a MSE architecture.
 
 Each example contains:
 - A file `mse.toml` which is the configuration of the MSE app.
@@ -10,13 +10,13 @@ Each example contains:
 These examples have been generated using:
 
 ```console
-$ mse-ctl scaffold $NAME
+$ mse scaffold $NAME
 ```
 
 You can test locally this app doing:
 
 ```console
-$ mse-ctl test
+$ mse test --path example_name/mse.toml
 $ # From another terminal:
 $ pytest
 ```
@@ -24,7 +24,7 @@ $ pytest
 You can quickly deploy this app doing:
 
 ```console
-$ mse-ctl deploy --path demo_name/mse.toml
+$ mse deploy --path example_name/mse.toml
 ```
 
 And test it:
@@ -33,7 +33,7 @@ And test it:
 $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 ```
 
-## Demo list
+## Examples list
 
 |                               Name                               |         SSL Certificate origin         |
 | :--------------------------------------------------------------: | :------------------------------------: |
@@ -44,7 +44,7 @@ $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 
 ## Annexes
 
-Here a way to tar an example to be run inside `mse-docker`:
+Here a way to tar an example to be run inside an [mse-docker](https://github.com/Cosmian/mse-docker-base):
 
 ```console
 $ tar -cvf $PWD/helloworld.tar --directory=helloworld/code app.py requirements.txt
