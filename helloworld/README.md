@@ -7,7 +7,7 @@ Basic example of an mse application working with a self-signed certificate on a 
 ## Deploy your application
 
 ```console
-$ mse deploy --path mse.toml
+$ mse deploy 
 ```
 
 Your application is now ready to be used
