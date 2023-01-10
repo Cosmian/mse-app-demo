@@ -21,12 +21,12 @@ $ sudo certbot certonly --dns-ovh --dns-ovh-credentials ovhapi.conf -d demo.owne
 ```
 
 Also add a new `CNAME` record in your DNS registry for `demo.owner.app` to `proxy.cosmian.com` prior to the app deployment.
-This domain name will be used for `mse-ctl deploy`.
+This domain name will be used for `mse deploy`.
 
 ## Deploy your application
 
 ```console
-$ mse-ctl deploy
+$ mse deploy
 ```
 
 Your application is now ready to be used.
