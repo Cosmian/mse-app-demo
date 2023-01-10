@@ -1,17 +1,13 @@
 # Helloworld
 
-Basic example of an mse application containing:
+Basic example of an mse application working with a self-signed certificate on a fully zero trust environment and containing:
 - A simple helloworld flask application
 - The mse app config file
-
-Two configurations are availables: 
-- `config/dev.toml`: work on dev mode which means with a cosmian certificate
-- `config/zero_trust.toml`: work with a self-signed certificate on a fully zero trust environment
 
 ## Deploy your application
 
 ```console
-$ mse deploy --path config/zero_trust.toml
+$ mse deploy 
 ```
 
 Your application is now ready to be used

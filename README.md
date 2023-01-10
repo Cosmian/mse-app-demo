@@ -35,12 +35,12 @@ $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 
 ## Examples list
 
-|                               Name                               |         SSL Certificate origin         |
-| :--------------------------------------------------------------: | :------------------------------------: |
-|                [helloworld](helloworld/README.md)                | Self (enclave)  or  Operator (Cosmian) |
-|             [float average](float_average/README.md)             |             Self (enclave)             |
-| [float average trust owner](float_average_trust_owner/README.md) |               App Owner                |
-|                [merge join](merge_join/README.md)                |             Self (enclave)             |
+|                               Name                               | SSL Certificate origin |
+| :--------------------------------------------------------------: | :--------------------: |
+|                [helloworld](helloworld/README.md)                |        Enclave         |
+|             [float average](float_average/README.md)             |        Enclave         |
+| [float average trust owner](float_average_trust_owner/README.md) |       App Owner        |
+|                [merge join](merge_join/README.md)                |        Enclave         |
 
 ## Annexes
 
