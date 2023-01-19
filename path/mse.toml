@@ -1,0 +1,11 @@
+name="path"
+version="1.0.0"
+project="default"
+plan="free"
+
+[code]
+location="mse_src"
+python_application="app:app"
+healthcheck_endpoint="/health"
+docker="ghcr.io/cosmian/mse-flask:20230110142022"
+secrets="secrets.json"
