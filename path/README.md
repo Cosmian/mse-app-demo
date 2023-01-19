@@ -1,6 +1,6 @@
 # Path
 
-Basic example of how to use dedicated path in a mse application.
+Basic example of how to use dedicated paths in an mse application.
 
  This example works with a self-signed certificate on a fully zero trust environment and containing:
 - A simple helloworld flask application

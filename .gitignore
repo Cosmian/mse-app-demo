@@ -2,6 +2,7 @@
 .idea/
 .python-version
 *.secret.toml
+*.secret.pem
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
