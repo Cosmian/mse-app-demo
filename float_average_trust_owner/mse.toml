@@ -11,9 +11,5 @@ docker="ghcr.io/cosmian/mse-flask:20230110142022"
 
 [ssl]
 domain_name="demo.owner.com"
-private_key="""-----BEGIN PRIVATE KEY-----
-TODO
------END PRIVATE KEY-----"""
-certificate="""-----BEGIN CERTIFICATE-----
-TODO
------END CERTIFICATE-----"""
+private_key="key.pem"
+certificate="cert.pem"

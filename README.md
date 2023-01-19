@@ -41,6 +41,7 @@ $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 |             [float average](float_average/README.md)             |        Enclave         |
 | [float average trust owner](float_average_trust_owner/README.md) |       App Owner        |
 |                [merge join](merge_join/README.md)                |        Enclave         |
+|                      [path](path/README.md)                      |        Enclave         |
 
 ## Annexes
 
