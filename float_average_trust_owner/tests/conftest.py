@@ -13,7 +13,12 @@ def url() -> str:
 
 
 @pytest.fixture(scope="module")
-def certificate(url) -> Optional[Path]:
+def workspace() -> Path:
+    return Path(tempfile.mkdtemp())
+
+
+@pytest.fixture(scope="module")
+def certificate(url, workspace) -> Optional[Path]:
     if "https" not in url:
         return None
 
@@ -21,7 +26,7 @@ def certificate(url) -> Optional[Path]:
         return None
 
     hostname = url.split("https://")[-1]
-    cert_path: Path = Path(tempfile.gettempdir()) / "cert.pem"
+    cert_path: Path = workspace / "cert.pem"
 
     if not cert_path.exists():
         # get server certificate
