@@ -38,4 +38,7 @@ def read_date():
         return Response(response="You should write before read",
                         status=HTTPStatus.NOT_FOUND)
 
-    return WORKFILE.read_text()
+    txt = WORKFILE.read_text()
+    WORKFILE.unlink()
+
+    return txt
