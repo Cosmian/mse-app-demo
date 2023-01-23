@@ -2,7 +2,7 @@
 
 Basic example of how to use dedicated paths in an mse application.
 
- This example works with a self-signed certificate on a fully zero trust environment and containing:
+ This example works with a self-signed certificate on a fully zero trust environment. This example contains:
 - A simple helloworld flask application
 - The mse app config file
 - A secret file
@@ -13,7 +13,7 @@ Basic example of how to use dedicated paths in an mse application.
 On a first terminal, run:
 
 ```console
-$ # From path directory
+$ # From `path` example directory
 $ cd mse_src
 $ SECRETS_PATH=../secrets.json flask run
 ```
@@ -21,14 +21,14 @@ $ SECRETS_PATH=../secrets.json flask run
 You can also run instead: 
 
 ```console
-$ # From path directory
+$ # From `path` example directory
 $ mse test
 ```
 
 On a second terminal, run:
 
 ```console
-$ # From path directory
+$ # From `path` example directory
 $ rm -f $HOME/date.txt
 $ pytest
 ```
@@ -44,7 +44,7 @@ Your application is now ready to be used
 ## Test it
 
 ```console
-$ TEST_REMOTE_URL="https://<app_domain_name>" pytest
+$ TEST_REMOTE_URL="https://<uuid.cosmian.app>" pytest
 ```
 
 ## Use it 
