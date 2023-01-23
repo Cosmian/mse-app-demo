@@ -4,7 +4,7 @@ project="default"
 plan="free"
 
 [code]
-location="code"
+location="mse_src"
 python_application="app:app"
 healthcheck_endpoint="/health"
-docker="ghcr.io/cosmian/mse-flask:20230110142022"
+docker="ghcr.io/cosmian/mse-flask:20230119150226"

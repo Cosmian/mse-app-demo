@@ -3,6 +3,7 @@
 Basic example of an mse application working with a self-signed certificate on a fully zero trust environment and containing:
 - A simple helloworld flask application
 - The mse app config file
+- Python tests
 
 ## Deploy your application
 
@@ -19,14 +20,6 @@ $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 ```
 
 ## Use it 
-
-### Deployment using dev.toml
-
-```sh
-$ curl https://<uuid.cosmian.dev>/
-```
-
-### Deployment using zero_trust.toml
 
 You can get the certificate and check it using:
 

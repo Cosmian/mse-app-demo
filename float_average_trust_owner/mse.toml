@@ -4,16 +4,12 @@ project="default"
 plan="free"
 
 [code]
-location="./code"
+location="./mse_src"
 python_application="app:app"
 healthcheck_endpoint="/health"
-docker="ghcr.io/cosmian/mse-flask:20230110142022"
+docker="ghcr.io/cosmian/mse-flask:20230119150226"
 
 [ssl]
 domain_name="demo.owner.com"
-private_key="""-----BEGIN PRIVATE KEY-----
-TODO
------END PRIVATE KEY-----"""
-certificate="""-----BEGIN CERTIFICATE-----
-TODO
------END CERTIFICATE-----"""
+private_key="key.pem"
+certificate="cert.pem"

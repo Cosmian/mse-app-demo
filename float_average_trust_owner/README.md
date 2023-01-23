@@ -7,8 +7,8 @@ In that scenario, the app owner provides the SSL certificate related to its doma
 
 ```toml
 [certificate]
-private_key="<TO SPECIFY>"
-certificate="<TO SPECIFY>"
+private_key="key.pem"
+certificate="cert.pem"
 domain_name="demo.owner.app"
 ```
 

@@ -4,7 +4,7 @@ You can find several app examples runnable in a MSE architecture.
 
 Each example contains:
 - A file `mse.toml` which is the configuration of the MSE app.
-- A folder `code` which is the code to run inside the MSE node.
+- A folder `mse_src` which is the code to run inside the MSE node.
 - A folder `test` which enables you to unittest your application locally or remotly.
 
 These examples have been generated using:
@@ -41,6 +41,7 @@ $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 |             [float average](float_average/README.md)             |        Enclave         |
 | [float average trust owner](float_average_trust_owner/README.md) |       App Owner        |
 |                [merge join](merge_join/README.md)                |        Enclave         |
+|                      [path](path/README.md)                      |        Enclave         |
 
 ## Annexes
 
