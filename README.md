@@ -48,5 +48,5 @@ $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 Here a way to tar an example to be run inside an [mse-docker](https://github.com/Cosmian/mse-docker-base):
 
 ```console
-$ tar -cvf $PWD/helloworld.tar --directory=helloworld/code app.py requirements.txt
+$ tar -cvf $PWD/helloworld.tar --directory=helloworld/mse_src app.py requirements.txt
 ```
