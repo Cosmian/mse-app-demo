@@ -1,9 +1,9 @@
 name="helloworld"
 project="default"
-plan="free"
+resource="free"
 
 [code]
 location="mse_src"
 python_application="app:app"
 healthcheck_endpoint="/health"
-docker="ghcr.io/cosmian/mse-flask:20230119150226"
+docker="ghcr.io/cosmian/mse-flask:20230124182826"
