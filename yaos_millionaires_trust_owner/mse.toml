@@ -1,4 +1,4 @@
-name="yaos_millionaires"
+name="yaos-millionaires-trusted"
 project="default"
 resource="free"
 
@@ -7,3 +7,8 @@ location="./mse_src"
 python_application="app:app"
 healthcheck_endpoint="/health"
 docker="ghcr.io/cosmian/mse-flask:20230124182826"
+
+[ssl]
+domain_name="demo.owner.com"
+private_key="key.pem"
+certificate="cert.pem"
