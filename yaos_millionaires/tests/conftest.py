@@ -1,15 +1,16 @@
-from pathlib import Path
+import os
 import socket
 import ssl
 import tempfile
+from pathlib import Path
 from typing import Optional
+
 import pytest
-import os
 
 
 @pytest.fixture(scope="module")
 def url() -> str:
-    return os.getenv("TEST_REMOTE_URL", "http://localhost:5000/")
+    return os.getenv("TEST_REMOTE_URL", "http://127.0.0.1:5000/")
 
 
 @pytest.fixture(scope="module")

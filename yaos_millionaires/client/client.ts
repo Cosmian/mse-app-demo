@@ -18,9 +18,8 @@ $ deno run --cert /tmp/cert.pem --allow-net client.ts https://XXX.cosmian.app
 
 */
 
-interface Mean {
-    readonly count: number,
-    readonly mean: number
+interface Maximum {
+    readonly max: number,
 }
 
 async function reset(url: string) {
@@ -45,7 +44,7 @@ async function push(url: string, n: number) {
   }
 }
 
-async function mean(url: string): Promise<Mean> {
+async function max(url: string): Promise<Maximum> {
   const response = await fetch(url);
 
   if (response.status != 200) {
@@ -60,10 +59,14 @@ const numbers: Array<number> = [110_000, 25_000, 55_000];
 
 const url: string = Deno.args[0];
 
-await reset(url);
+if (url) {
+  await reset(url);
 
-for (const n of numbers) {
-  await push(url, n);
+  for (const n of numbers) {
+    await push(url, n);
+  }
+
+  console.log(await max(url));
+} else {
+  console.log("No argument URL found")
 }
-
-console.log(await mean(url));

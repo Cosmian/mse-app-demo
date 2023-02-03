@@ -1,6 +1,6 @@
-# Float average with trusted owner
+# Yao's millionaires with trusted owner
 
-Similar example as [float_average](../float_average/README.md) demo but with a custom certificate provided by the app owner.
+Similar example as [yaos_millionaires](../yaos_millionaires/README.md) demo but with a custom certificate provided by the app owner.
 It means that the TLS connection is controlled by the application owner instead of being generated directly in the enclave.
 
 In that scenario, the app owner provides the SSL certificate related to its domain name:
@@ -37,7 +37,7 @@ Your application is now ready to be used.
 $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 ```
 
-## Use it 
+## Use it
 
 You can now query the app from JavaScript your web browser.
 

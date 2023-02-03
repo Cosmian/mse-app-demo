@@ -1,18 +1,19 @@
 """app module."""
 
-from http import HTTPStatus
 import logging
-from typing import Optional, Any
+from http import HTTPStatus
+from typing import Any, Optional
 
 from flask import Flask, Response, request
-from flask_cors import CORS
 
 import globs
 
 app = Flask(__name__)
-cors = CORS(app)
 
-logging.basicConfig(format="[%(levelname)s] %(message)s", level=logging.DEBUG)
+logging.basicConfig(
+    format="[%(levelname)s] %(message)s",
+    level=logging.DEBUG
+)
 
 
 @app.get("/health")
@@ -23,7 +24,7 @@ def health_check():
 
 @app.post("/")
 def push():
-    """Add a number to the global mean."""
+    """Add a number to the pool."""
     data: Optional[Any] = request.get_json(silent=True)
 
     if data is None or not isinstance(data, dict):
@@ -36,28 +37,29 @@ def push():
         app.logger.error("TypeError with data content: '%s' (%s)", n, type(n))
         return Response(status=HTTPStatus.UNPROCESSABLE_ENTITY)
 
-    globs.COUNT += 1
-    globs.AVERAGE += n
+    globs.POOL.append(n)
 
     app.logger.info("Successfully added %s", n)
     return Response(status=HTTPStatus.OK)
 
 
 @app.get("/")
-def mean():
-    """Get the current mean."""
-    if globs.COUNT < 2:
-        app.logger.error("need more than 2 values to compute the mean")
-        return {"mean": None, "count": globs.COUNT}
+def maximum():
+    """Get the current max in pool."""
+    if len(globs.POOL) < 1:
+        app.logger.error("need more than 1 value to compute the max")
+        return {"max": None}
 
-    return {"mean": globs.AVERAGE / globs.COUNT, "count": globs.COUNT}
+    max_value = max(globs.POOL)
+    index = globs.POOL.index(max_value)
+
+    return {"max": "User #{}".format(index + 1)}
 
 
 @app.delete("/")
 def reset():
-    """Reset the current mean."""
-    globs.AVERAGE = 0.0
-    globs.COUNT = 0
+    """Reset the cur."""
+    globs.POOL = []
 
     app.logger.info("Reset successfully")
 

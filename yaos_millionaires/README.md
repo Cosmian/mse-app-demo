@@ -1,7 +1,7 @@
-# Float average for MSE
+# Yao's millionaires for MSE
 
-This demo allows to share integers and get the average on them.
-No one see the set of integers, only the average and the number of submission is known.
+This demo allows to share integers and get the position of the maximum added interger.
+No one see the set of integers, only the position of the user who added the highest number is known.
 
 ## Test locally
 
@@ -11,7 +11,7 @@ It's a good practice before deploying an app into MSE to test it locally:
 $ mse test
 $ # push an integer
 $ curl -X POST -H 'Content-Type: application/json' -d '{"n": 2.5}' http://127.0.0.1:5000/
-$ # get the statistical mean
+$ # get the position of the user who added the maximum value
 $ curl http://127.0.0.1:5000/
 ```
 
@@ -41,7 +41,7 @@ $ openssl s_client -showcerts -connect <uuid>.cosmian.app:443 </dev/null 2>/dev/
 check that it runs in an Intel SGX enclave (not checking code fingerprint):
 
 ```console
-$ mse verify --skip-fingerprint <uuid>.cosmian.app
+$ mse verify <uuid>.cosmian.app
 ```
 
 then just query your trusted microservice:
@@ -49,7 +49,7 @@ then just query your trusted microservice:
 ```console
 $ # push an integer with your CA bundle
 $ curl -X POST -H 'Content-Type: application/json' -d '{"n": 2.5}' https://<uuid>.cosmian.app/ --cacert cert.pem
-$ # get the statistical mean with your CA bundle
+$ # get the user with the max value with your CA bundle
 $ curl https://<uuid>.cosmian.app/ --cacert cert.pem
 ```
 

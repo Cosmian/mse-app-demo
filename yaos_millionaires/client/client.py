@@ -9,16 +9,16 @@ Replace with HTTPS URL if you want to test with MSE.
 
 """
 
-from pathlib import Path
 import socket
 import ssl
 import sys
 import tempfile
-from typing import List, Dict, Any, Optional
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
+import requests
 from intel_sgx_ra.quote import Quote
 from intel_sgx_ra.ratls import ratls_verification
-import requests
 
 
 def reset(session: requests.Session, url: str) -> None:
@@ -35,18 +35,22 @@ def push(session: requests.Session, url: str, n: float) -> None:
         raise Exception(f"Bad response: {response.status_code}")
 
 
-def mean(session: requests.Session, url: str) -> Dict[str, Any]:
+def max(session: requests.Session, url: str) -> Dict[str, Any]:
     response: requests.Response = session.get(url)
 
     if response.status_code != 200:
         raise Exception(f"Bad response: {response.status_code}")
-    
+
     return response.json()
 
 
 def main() -> int:
+    if (len(sys.argv) < 2):
+        print("No argument URL found")
+        return 1
+
     url: str = sys.argv[1]
-    hostname, port = ((url.split("https://")[-1], 443) if "https" in url 
+    hostname, port = ((url.split("https://")[-1], 443) if "https" in url
                       else (url.split("http://")[-1], 80))
     session: requests.Session = requests.Session()
 
@@ -71,7 +75,7 @@ def main() -> int:
         quote: Quote = ratls_verification(cert_path)
 
         session.verify = f"{cert_path}"
-    
+
     numbers: List[float] = [110_000.0, 25_000.0, 55_000.0]
 
     reset(session, url)
@@ -79,7 +83,7 @@ def main() -> int:
     for n in numbers:
         push(session, url, n)
 
-    print(mean(session, url))
+    print(max(session, url))
 
     return 0
 
