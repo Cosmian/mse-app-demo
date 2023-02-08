@@ -58,7 +58,7 @@ def maximum():
 
 @app.delete("/")
 def reset():
-    """Reset the cur."""
+    """Reset the current pool."""
     globs.POOL = []
 
     app.logger.info("Reset successfully")
