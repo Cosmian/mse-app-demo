@@ -5,10 +5,12 @@ from http import HTTPStatus
 from typing import Any, Optional
 
 from flask import Flask, Response, request
+from flask_cors import CORS
 
 import globs
 
 app = Flask(__name__)
+cors = CORS(app)
 
 logging.basicConfig(
     format="[%(levelname)s] %(message)s",
@@ -58,7 +60,7 @@ def maximum():
 
 @app.delete("/")
 def reset():
-    """Reset the cur."""
+    """Reset the current pool."""
     globs.POOL = []
 
     app.logger.info("Reset successfully")
