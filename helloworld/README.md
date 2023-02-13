@@ -16,7 +16,7 @@ Your application is now ready to be used
 ## Test it
 
 ```console
-$ TEST_REMOTE_URL="https://<app_domain_name>" pytest
+$ TEST_REMOTE_URL="https://$APP_DOMAIN_NAME" pytest
 ```
 
 ## Use it 
@@ -24,11 +24,11 @@ $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 You can get the certificate and check it using:
 
 ```console
-$ mse verify --skip-fingerprint "<uuid.cosmian.app>"
+$ mse verify --skip-fingerprint "$APP_DOMAIN_NAME"
 ```
 
 You can now query the microservice:
 
 ```sh
-$ curl https://<uuid.cosmian.app>/ --cacert cert.pem
+$ curl https://$APP_DOMAIN_NAME/ --cacert cert.pem
 ```

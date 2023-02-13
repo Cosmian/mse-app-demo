@@ -7,41 +7,47 @@ Each example contains:
 - A folder `mse_src` which is the code to run inside the MSE node.
 - A folder `test` which enables you to unittest your application locally or remotly.
 
+You can read the full [documentation](https://docs.cosmian.com/microservice_encryption/getting_started/) for more details about MSE and `mse-cli`.
+
 These examples have been generated using:
 
 ```console
 $ mse scaffold $NAME
 ```
 
-You can test locally this app doing:
+You can test locally an app doing:
 
 ```console
-$ mse test --path example_name/mse.toml
+$ cd example_name
+$ mse test
 $ # From another terminal:
+$ cd example_name
 $ pytest
 ```
 
 You can quickly deploy this app doing:
 
 ```console
-$ mse deploy --path example_name/mse.toml
+$ cd example_name
+$ mse deploy
 ```
 
 And test it:
 
 ```console
+$ cd example_name
 $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 ```
 
 ## Examples list
 
-|                               Name                               | SSL Certificate origin |
-| :--------------------------------------------------------------: | :--------------------: |
-|                [helloworld](helloworld/README.md)                |        Enclave         |
-|             [float average](float_average/README.md)             |        Enclave         |
-| [float average trust owner](float_average_trust_owner/README.md) |       App Owner        |
-|                [merge join](merge_join/README.md)                |        Enclave         |
-|                      [path](path/README.md)                      |        Enclave         |
+|                                   Name                                   | SSL Certificate origin |
+| :----------------------------------------------------------------------: | :--------------------: |
+|                    [helloworld](helloworld/README.md)                    |        Enclave         |
+|                    [merge join](merge_join/README.md)                    |        Enclave         |
+|                          [path](path/README.md)                          |        Enclave         |
+|             [yaos millionaires](yaos_millionaires/README.md)             |        Enclave         |
+| [yaos millionaires trust owner](yaos_millionaires_trust_owner/README.md) |       App Owner        |
 
 ## Annexes
 

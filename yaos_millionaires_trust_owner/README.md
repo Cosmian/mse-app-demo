@@ -34,7 +34,7 @@ Your application is now ready to be used.
 ## Test it
 
 ```console
-$ TEST_REMOTE_URL="https://<app_domain_name>" pytest
+$ TEST_REMOTE_URL="https://$APP_DOMAIN_NAME" pytest
 ```
 
 ## Use it
