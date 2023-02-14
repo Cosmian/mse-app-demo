@@ -45,7 +45,7 @@ Your application is now ready to be used
 ## Test it
 
 ```console
-$ TEST_REMOTE_URL="https://<uuid.cosmian.app>" pytest
+$ TEST_REMOTE_URL="https://$APP_DOMAIN_NAME" pytest
 ```
 
 ## Use it
@@ -53,13 +53,13 @@ $ TEST_REMOTE_URL="https://<uuid.cosmian.app>" pytest
 You can get the certificate and check it using:
 
 ```console
-$ mse verify --skip-fingerprint "<uuid.cosmian.app>"
+$ mse verify --skip-fingerprint "$APP_DOMAIN_NAME"
 ```
 
 You can now query the microservice:
 
 ```sh
-$ curl https://<uuid.cosmian.app>/ --cacert cert.pem
+$ curl https://$APP_DOMAIN_NAME/ --cacert cert.pem
 ```
 
 ### Authentication using tokens
@@ -70,11 +70,11 @@ In a real-world application, this file should not be pushed on a public git repo
 Write current date into file
 
 ```sh
-$ curl -H "Authorization: Bearer 6fMvPktkMwZj5UJwxasOIj7sO37H4DfZZo05Nn1fFYw=" -X POST https://<uuid.cosmian.app>/ --cacert cert.pem
+$ curl -H "Authorization: Bearer 6fMvPktkMwZj5UJwxasOIj7sO37H4DfZZo05Nn1fFYw=" -X POST https://$APP_DOMAIN_NAME/ --cacert cert.pem
 ```
 
 Read the date file
 
 ```sh
-$ curl -H "Authorization: Bearer bAyJhel6vwzrvNcy7ux2nULRwpP6BviE34KSiZRGixo=" https://<uuid.cosmian.app>/ --cacert cert.pem
+$ curl -H "Authorization: Bearer bAyJhel6vwzrvNcy7ux2nULRwpP6BviE34KSiZRGixo=" https://$APP_DOMAIN_NAME/ --cacert cert.pem
 ```

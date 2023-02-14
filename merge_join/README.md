@@ -28,23 +28,23 @@ Your application is now ready to be used.
 Get the SSL certificate (without checking the trustworthiness of the enclave):
 
 ```console
-$ # replace with your <uuid>
-$ openssl s_client -showcerts -connect <uuid>.cosmian.app:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > cert.pem
+$ # replace $APP_DOMAIN_NAME with your own app domaine name
+$ openssl s_client -showcerts -connect $APP_DOMAIN_NAME:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > cert.pem
 ```
 
 check that it runs in an Intel SGX enclave (not checking code fingerprint):
 
 ```console
-$ mse verify --skip-fingerprint <uuid>.cosmian.app
+$ mse verify --skip-fingerprint $APP_DOMAIN_NAME
 ```
 
 then just query your trusted microservice:
 
 ```console
 $ # push your CSV file with your CA bundle
-$ curl -F "file=@/path/to/csv-file" https://<uuid>.cosmian.app/ --cacert cert.pem
+$ curl -F "file=@/path/to/csv-file" https://$APP_DOMAIN_NAME/ --cacert cert.pem
 $ # get result of merge on column "siren" with your CA bundle
-$ curl https://<uuid>.cosmian.app/ --cacert cert.pem
+$ curl https://$APP_DOMAIN_NAME/ --cacert cert.pem
 ```
 
 See [clients](client/) in various language if you don't want to use `curl`.
