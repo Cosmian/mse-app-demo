@@ -20,7 +20,7 @@ Your application is now ready to be used
 You can get the certificate and check it using:
 
 ```console
-$ mse verify --skip-fingerprint $APP_DOMAIN_NAME
+$ mse verify $APP_DOMAIN_NAME
 ```
 
 You can now query the microservice:

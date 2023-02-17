@@ -13,4 +13,4 @@ def health_check():
 @app.get("/")
 def hello():
     """Get a simple example."""
-    return {"message": "Hello World"}
+    return "Hello world"
