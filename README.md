@@ -44,6 +44,7 @@ $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 |                                   Name                                   | SSL Certificate origin |
 | :----------------------------------------------------------------------: | :--------------------: |
 |                    [helloworld](helloworld/README.md)                    |        Enclave         |
+|            [fastapi-helloworld](fastapi-helloworld/README.md)            |        Enclave         |
 |                    [merge join](merge_join/README.md)                    |        Enclave         |
 |                          [path](path/README.md)                          |        Enclave         |
 |             [yaos millionaires](yaos_millionaires/README.md)             |        Enclave         |
