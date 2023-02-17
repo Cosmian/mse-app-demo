@@ -5,6 +5,8 @@ Basic example of an mse application working with a self-signed certificate on a 
 - A simple helloworld fastAPI application
 - The mse app config file
 
+***WARNING***: the command `mse test` is currently not working for fastAPI.
+
 ## Deploy your application
 
 ```console
