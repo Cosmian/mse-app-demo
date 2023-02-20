@@ -33,7 +33,10 @@ def certificate(url, workspace) -> Optional[Path]:
         # get server certificate
         cert: Optional[str] = None
         with socket.create_connection((hostname, 443)) as sock:
-            context = ssl.SSLContext(ssl.PROTOCOL_TLS)
+            context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+            context.check_hostname = False
+            context.verify_mode = ssl.CERT_NONE
+
             with context.wrap_socket(sock, server_hostname=hostname) as ssock:
                 bin_cert = ssock.getpeercert(True)
                 if not bin_cert:
