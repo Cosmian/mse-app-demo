@@ -45,13 +45,16 @@ def max(session: requests.Session, url: str) -> Dict[str, Any]:
 
 
 def main() -> int:
-    if (len(sys.argv) < 2):
+    if len(sys.argv) < 2:
         print("No argument URL found")
         return 1
 
     url: str = sys.argv[1]
-    hostname, port = ((url.split("https://")[-1], 443) if "https" in url
-                      else (url.split("http://")[-1], 80))
+    hostname, port = (
+        (url.split("https://")[-1], 443)
+        if "https" in url
+        else (url.split("http://")[-1], 80)
+    )
     session: requests.Session = requests.Session()
 
     if port == 443:
@@ -60,8 +63,11 @@ def main() -> int:
         if not cert_path.exists():
             # get server certificate
             cert: Optional[str] = None
-            with socket.create_connection((hostname, port)) as sock:
-                context = ssl.SSLContext(ssl.PROTOCOL_TLS)
+            with socket.create_connection((hostname, port), timeout=10) as sock:
+                context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+                context.check_hostname = False
+                context.verify_mode = ssl.CERT_NONE
+
                 with context.wrap_socket(sock, server_hostname=hostname) as ssock:
                     bin_cert = ssock.getpeercert(True)
                     if not bin_cert:
