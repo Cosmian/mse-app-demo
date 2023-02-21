@@ -32,7 +32,7 @@ def certificate(url, workspace) -> Optional[Path]:
     if not cert_path.exists():
         # get server certificate
         cert: Optional[str] = None
-        with socket.create_connection((hostname, 443)) as sock:
+        with socket.create_connection((hostname, 443), timeout=10) as sock:
             context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
             context.check_hostname = False
             context.verify_mode = ssl.CERT_NONE
