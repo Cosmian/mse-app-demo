@@ -1,0 +1,66 @@
+{
+  "uuid": "f4a5fb00-9a67-4e5f-bb44-fd7e9d223a94",
+  "name": "Demo MSE",
+  "description": "Demo MSE on bank info",
+  "created_at": "Wed, 08 Feb 2023 15:34:42 GMT",
+  "input_dataset": {
+    "dataset_metadata": [
+      {
+        "key": 0,
+        "name": "name",
+        "type": "Text",
+        "example": "Kenyon Stark",
+        "technique": "Hash",
+        "technique_options": {
+          "hash_function": "PBKDF2",
+          "salt": "85350e3d-96ff-4071-b052-fd5d1357ddfb"
+        },
+        "treated_example": "288670af54e4641c65a5f7133c249b86"
+      },
+      {
+        "key": 1,
+        "name": "transactionDate",
+        "type": "Date",
+        "example": "10/27/2022",
+        "technique": "AddNoise",
+        "technique_options": {
+          "noise_type": "Gaussian",
+          "standard_deviation": 4,
+          "precision_type": "Year"
+        },
+        "treated_example": "Thu, 27 Sep 2012 09:03:44 GMT"
+      },
+      {
+        "key": 2,
+        "name": "Iban",
+        "type": "Text",
+        "example": "CR7880370534805481174",
+        "technique": "Hash",
+        "technique_options": {
+          "hash_function": "SHA256",
+          "salt": "34b19ba5-2a22-43a6-b145-2e0adb33ab76"
+        },
+        "treated_example": "463f859825a3ab0254b5624c26df01e6082905b64f87cddf33ce57212555831c"
+      },
+      {
+        "key": 3,
+        "name": "amount",
+        "type": "Integer",
+        "example": "1551",
+        "technique": "AddNoise",
+        "technique_options": {
+          "noise_type": "Gaussian",
+          "standard_deviation": 500
+        },
+        "treated_example": "2583"
+      }
+    ],
+    "file_info": {
+      "last_modified": 1675870433819,
+      "name": "config4.csv",
+      "size": 141,
+      "type": "text/csv"
+    },
+    "delimiter": ";"
+  }
+}
