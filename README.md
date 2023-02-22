@@ -41,14 +41,14 @@ $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 
 ## Examples list
 
-|                                   Name                                   | SSL Certificate origin |
-| :----------------------------------------------------------------------: | :--------------------: |
-|                    [helloworld](helloworld/README.md)                    |        Enclave         |
-|            [fastapi-helloworld](fastapi_helloworld/README.md)            |        Enclave         |
-|                    [merge join](merge_join/README.md)                    |        Enclave         |
-|                          [path](path/README.md)                          |        Enclave         |
-|             [yaos millionaires](yaos_millionaires/README.md)             |        Enclave         |
-| [yaos millionaires trust owner](yaos_millionaires_trust_owner/README.md) |       App Owner        |
+|                                   Name                                   |                                                         Usage scenario                                                          |
+| :----------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: |
+|                    [helloworld](helloworld/README.md)                    | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+|            [fastapi-helloworld](fastapi_helloworld/README.md)            | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+|                    [merge join](merge_join/README.md)                    | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+|                          [path](path/README.md)                          | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+|             [yaos millionaires](yaos_millionaires/README.md)             | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+| [yaos millionaires trust owner](yaos_millionaires_trust_owner/README.md) |     [App Owner trusted](https://docs.cosmian.com/microservice_encryption/scenarios/#app-owner-trusted-fully-encrypted-saas)     |
 
 ## Annexes
 
