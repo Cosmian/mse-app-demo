@@ -12,16 +12,13 @@ import globs
 app = Flask(__name__)
 cors = CORS(app)
 
-logging.basicConfig(
-    format="[%(levelname)s] %(message)s",
-    level=logging.DEBUG
-)
+logging.basicConfig(format="[%(levelname)s] %(message)s", level=logging.DEBUG)
 
 
 @app.get("/health")
 def health_check():
     """Health check of the application."""
-    return Response(status=HTTPStatus.OK)
+    return Response(response="OK", status=HTTPStatus.OK)
 
 
 @app.post("/")

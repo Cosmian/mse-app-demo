@@ -44,7 +44,7 @@ def merge_all(datas: Iterator[Path], on: str) -> pd.DataFrame:
 @app.get("/health")
 def health_check():
     """Health check of the application."""
-    return Response(status=HTTPStatus.OK)
+    return Response(response="OK", status=HTTPStatus.OK)
 
 
 @app.post("/")
@@ -62,7 +62,7 @@ def push():
 
     filename: str = secure_filename(file.filename)
     filepath: Path = Path(app.config["UPLOAD_FOLDER"]) / filename
-    
+
     if filepath.suffix == ".csv":
         file.save(filepath)
 

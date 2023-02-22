@@ -16,7 +16,7 @@ SECRETS = json.loads(Path(os.getenv("SECRETS_PATH")).read_text())
 @app.get("/health")
 def health_check():
     """Health check of the application."""
-    return Response(status=HTTPStatus.OK)
+    return Response(response="OK", status=HTTPStatus.OK)
 
 
 @app.post("/")
