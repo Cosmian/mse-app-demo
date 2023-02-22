@@ -4,7 +4,7 @@ resource = "free"
 
 [code]
 location = "mse_src"
-docker = "ghcr.io/cosmian/mse-anonymization:20230126164002"
+docker = "ghcr.io/cosmian/mse-anonymization:20230223164502"
 python_application = "app:app"
-healthcheck_endpoint = "/"
+healthcheck_endpoint = "/health"
 secrets="secrets.json"

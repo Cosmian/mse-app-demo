@@ -53,7 +53,7 @@ def get_input_file(file_list: List[FileStorage]) -> Path:
 # -----------------#
 #   Flask routes   #
 # -----------------#
-@app.get("/")
+@app.get("/health")
 def health_check():
     return Response(status=HTTPStatus.OK)
 
