@@ -6,7 +6,7 @@ resource="free"
 location="./mse_src"
 python_application="app:app"
 healthcheck_endpoint="/health"
-docker="ghcr.io/cosmian/mse-flask:20230124182826"
+docker="ghcr.io/cosmian/mse-flask:20230228091325"
 
 [ssl]
 domain_name="demo.owner.com"
