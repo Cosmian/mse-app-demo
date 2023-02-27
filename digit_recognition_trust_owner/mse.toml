@@ -4,6 +4,11 @@ resource = "free"
 
 [code]
 location = "mse_src"
-docker="ghcr.io/cosmian/mse-flask-digitrecognition:20230130144632"
+docker="ghcr.io/cosmian/mse-tensorflow:20230223165539"
 python_application = "app:app"
 healthcheck_endpoint = "/health"
+
+[ssl]
+domain_name="demo.staging.cosmilink.com"
+certificate="./cert.secret.pem"
+private_key="./key.secret.pem"
