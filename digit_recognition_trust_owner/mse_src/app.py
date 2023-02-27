@@ -25,11 +25,20 @@ logging.basicConfig(
 )
 
 CWD_PATH = os.getenv("MODULE_PATH")
-model = load_model(f"{CWD_PATH}/mnist.h5")
+if (CWD_PATH == None):
+    model = load_model(f"./mnist.h5")
+else:
+    model = load_model(f"{CWD_PATH}/mnist.h5")
 
 @app.post("/")
 def push():
     data: Optional[Any] = request.get_json(silent=True)
+    if (not data or not data['data']):
+        app.logger.error("No data part")
+        return Response(status=HTTPStatus.UNPROCESSABLE_ENTITY)
+    if (len(data['data'].split("data:image/png;base64,")) < 2):
+        app.logger.error("Wrong data format")
+        return Response(status=HTTPStatus.UNPROCESSABLE_ENTITY)
     imgString = data['data'].split("data:image/png;base64,")[1]
     imgData = base64.b64decode(imgString)
     img = Image.open(io.BytesIO(imgData))
