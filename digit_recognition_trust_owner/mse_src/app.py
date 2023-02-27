@@ -10,7 +10,6 @@ from http import HTTPStatus, client
 from typing import Any, Optional
 
 import numpy as np
-import tensorflow as tf
 from flask import Flask, Response, jsonify, request
 from flask_cors import CORS
 from keras.models import load_model

@@ -9,6 +9,6 @@ python_application = "app:app"
 healthcheck_endpoint = "/health"
 
 [ssl]
-domain_name="demo.staging.cosmilink.com"
-certificate="./cert.secret.pem"
-private_key="./key.secret.pem"
+domain_name="demo.owner.com"
+private_key="key.pem"
+certificate="cert.pem"
