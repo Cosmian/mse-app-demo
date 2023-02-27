@@ -1,0 +1,9 @@
+name = "digit-recognition"
+project = "default"
+resource = "free"
+
+[code]
+location = "mse_src"
+docker="ghcr.io/cosmian/mse-flask-digitrecognition:20230130144632"
+python_application = "app:app"
+healthcheck_endpoint = "/health"
