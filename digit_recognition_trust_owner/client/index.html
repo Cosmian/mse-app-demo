@@ -48,7 +48,7 @@
         </form>
 
         <button class="btn btn-primary" id="send" type="submit">Submit</button>
-        <button class="btn btn-primary" id="reset">Clear</button>
+        <button class="btn btn-primary" id="clear">Clear</button>
         <div class="mt-5">
             <div id="max" class="alert alert-primary" role="alert" style="display: inline-block">
                 NaN
@@ -131,20 +131,10 @@
         //     }
         // });
 
-        // $("#reset").click(function () {
-        //     const url = "https://" + $("#url").val();
-
-        //     $("#number").val("");
-        //     $("#max").text("NaN");
-
-        //     fetch(url, {
-        //         method: "DELETE",
-        //     }).then((response) => {
-        //         if (!response.ok) {
-        //             throw new Error(`HTTP error: ${response.status}`);
-        //         }
-        //     });
-        // });
+        $("#clear").click(function () {
+            ctx.rect(0, 0, 300, 300);
+            ctx.fill();
+        });
 
         // setInterval(() => {
         //     const url = "https://" + $("#url").val();
