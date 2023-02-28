@@ -3,9 +3,10 @@ import socket
 import ssl
 import tempfile
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Union
 
 import pytest
+from cryptography import x509
 
 
 @pytest.fixture(scope="module")
@@ -19,34 +20,45 @@ def workspace() -> Path:
 
 
 @pytest.fixture(scope="module")
-def certificate(url, workspace) -> Optional[Path]:
+def certificate(url, workspace) -> Union[Path, bool]:
     if "https" not in url:
-        return None
+        return False  # Do not check
 
     if "localhost" in url:
-        return None
+        return False  # Do not check
 
     hostname = url.split("https://")[-1]
     cert_path: Path = workspace / "cert.pem"
 
-    if not cert_path.exists():
-        # get server certificate
-        cert: Optional[str] = None
-        with socket.create_connection((hostname, 443), timeout=10) as sock:
-            context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
-            context.check_hostname = False
-            context.verify_mode = ssl.CERT_NONE
+    if cert_path.exists():
+        if cert_path.read_text() == "1":
+            return True  # Use the ssl bundle from the system
+        return cert_path  # Use this specific bundle
 
-            with context.wrap_socket(sock, server_hostname=hostname) as ssock:
-                bin_cert = ssock.getpeercert(True)
-                if not bin_cert:
-                    raise Exception("Can't get peer certificate")
-                cert = ssl.DER_cert_to_PEM_cert(bin_cert)
-        if cert:
+    # get server certificate
+    pem: Optional[str] = None
+    with socket.create_connection((hostname, 443), timeout=10) as sock:
+        context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+        context.check_hostname = False
+        context.verify_mode = ssl.CERT_NONE
+
+        with context.wrap_socket(sock, server_hostname=hostname) as ssock:
+            bin_cert = ssock.getpeercert(True)
+            if not bin_cert:
+                raise Exception("Can't get peer certificate")
+            pem = ssl.DER_cert_to_PEM_cert(bin_cert)
+
+    if pem:
+        cert = x509.load_pem_x509_certificate(pem.encode("utf8"))
+        if cert.subject == cert.issuer:  # self signed certificate
             # save it for future use
-            cert_path.write_bytes(cert.encode("utf-8"))
+            cert_path.write_bytes(pem.encode("utf-8"))
+        else:
+            cert_path.write_text("1")
+            return True
 
     return cert_path
+
 
 @pytest.fixture(scope="module")
 def data() -> str:

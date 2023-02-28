@@ -1,7 +1,7 @@
 # Digit recognition with trusted owner
 
-The aim of this demo is to provide an app to do digit recognition from a drawn canva, based on a trained model, using tensorflow and keras.
-In this example we use a custom certificate provided by the app owner.
+The aim of this demo is to provide an app to perform digit recognition from a drawn canvas, based on a trained model, using `tensorflow` and `keras`.
+In this example, we use a custom certificate provided by the app owner.
 It means that the TLS connection is controlled by the application owner instead of being generated directly in the enclave.
 
 In that scenario, the app owner provides the SSL certificate related to its domain name:
@@ -43,3 +43,8 @@ $ TEST_REMOTE_URL="https://$APP_DOMAIN_NAME" pytest
 You can now query the app from JavaScript your web browser.
 
 Try with `client/index.html`.
+
+## Memo
+
+For local testing, you might need to add "MODULE_PATH" environment variable before launching your flask app, specifying the right path to your module and model file.
+However, this var is already setup on the sgx machine.

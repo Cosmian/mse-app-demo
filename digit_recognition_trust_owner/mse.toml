@@ -4,7 +4,7 @@ resource = "free"
 
 [code]
 location = "mse_src"
-docker="ghcr.io/cosmian/mse-tensorflow:20230223165539"
+docker="ghcr.io/cosmian/mse-tensorflow:20230228091041"
 python_application = "app:app"
 healthcheck_endpoint = "/health"
 
