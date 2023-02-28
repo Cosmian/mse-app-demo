@@ -14,7 +14,7 @@ RAW_DATA_PATH = cwd_path.parent / "files/data.csv"
 
 
 def get_certificate(hostname: str, port: int) -> str:
-    with socket.create_connection((hostname, port)) as sock:
+    with socket.create_connection((hostname, port), timeout=10) as sock:
         context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
         context.check_hostname = False
         context.verify_mode = ssl.CERT_NONE
@@ -67,7 +67,6 @@ def main(url: str, self_signed_ssl: bool = False):
 
 
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser(description="Data provider example.")
     parser.add_argument("url", type=str, help="URL of the secure API")
     parser.add_argument(

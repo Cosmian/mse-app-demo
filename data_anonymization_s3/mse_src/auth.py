@@ -1,11 +1,15 @@
-from flask import make_response, request
+"""Authentication module."""
+
 from functools import wraps
+
+from flask import make_response, request
 
 PREFIX = "Bearer "
 
 
-# Authentication decorator
 def check_token(valid_token):
+    """Verify the token from the HTTP header against a valid reference."""
+
     def decorator(f):
         @wraps(f)
         def wrapper(*args, **kwargs):
@@ -13,7 +17,8 @@ def check_token(valid_token):
                 bearer_token = request.headers["Authorization"]
                 if not bearer_token.startswith(PREFIX):
                     return make_response("Bearer not found!", 401)
-                token = bearer_token[len(PREFIX) :]
+                prefix_length = len(PREFIX)
+                token = bearer_token[prefix_length:]
                 if token == valid_token:
                     return f(*args, **kwargs)
             return make_response("Invalid token!", 401)

@@ -14,7 +14,7 @@ FLASK_TOKEN = "Bearer Yt3qdlRXfSpkfc17DmzSSiNsw64ca3TLOAKX6DJWsxA="
 
 
 def get_certificate(hostname: str, port: int) -> str:
-    with socket.create_connection((hostname, port)) as sock:
+    with socket.create_connection((hostname, port), timeout=10) as sock:
         context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
         context.check_hostname = False
         context.verify_mode = ssl.CERT_NONE
@@ -70,7 +70,6 @@ def main(url: str, self_signed_ssl: bool = False):
 
 
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser(description="Data provider example.")
     parser.add_argument("url", type=str, help="URL of the secure API")
     parser.add_argument(

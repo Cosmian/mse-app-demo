@@ -50,7 +50,7 @@ $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 |             [yaos millionaires](yaos_millionaires/README.md)             | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
 | [yaos millionaires trust owner](yaos_millionaires_trust_owner/README.md) |     [App Owner trusted](https://docs.cosmian.com/microservice_encryption/scenarios/#app-owner-trusted-fully-encrypted-saas)     |
 | [digit recognition trust owner](digit_recognition_trust_owner/README.md) |     [App Owner trusted](https://docs.cosmian.com/microservice_encryption/scenarios/#app-owner-trusted-fully-encrypted-saas)     |
-
+|         [data_anonymization_s3](data_anonymization_s3/README.md)         | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
 
 ## Annexes
 
