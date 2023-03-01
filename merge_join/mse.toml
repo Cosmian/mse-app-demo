@@ -1,6 +1,6 @@
 name="merge_join"
 project="default"
-hardware="512m-eu-001"
+resource="free"
 
 [code]
 location="./mse_src"
