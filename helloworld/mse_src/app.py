@@ -1,3 +1,5 @@
+"""`Helloworld` example."""
+
 from http import HTTPStatus
 
 from flask import Flask, Response

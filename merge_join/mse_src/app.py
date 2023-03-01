@@ -1,21 +1,22 @@
-"""app module."""
+"""`Merge join` example."""
 
+import logging
 from http import HTTPStatus
 from io import BytesIO
-import logging
 from pathlib import Path
-from typing import Iterator, Any
-
-from flask import Flask, Response, request, send_file
-import pandas as pd
-from werkzeug.utils import secure_filename
+from typing import Iterator
 
 import globs
-
+import pandas as pd
+from flask import Flask, Response, request, send_file
+from flask.logging import create_logger
+from werkzeug.utils import secure_filename
 
 SEP: str = ";"
 
 app = Flask(__name__)
+LOG = create_logger(app)
+
 app.config["UPLOAD_FOLDER"] = "/tmp"
 
 logging.basicConfig(format="[%(levelname)s] %(message)s", level=logging.DEBUG)
@@ -28,7 +29,7 @@ def merge_all(datas: Iterator[Path], on: str) -> pd.DataFrame:
     try:
         dataframe = pd.read_csv(next(datas), sep=SEP)
     except StopIteration as exc:
-        raise Exception("No input data!") from exc
+        raise ValueError("No input data!") from exc
 
     for data in datas:  # type: Path
         dataframe = pd.merge(
@@ -51,13 +52,13 @@ def health_check():
 def push():
     """Push CSV file for future merge."""
     if "file" not in request.files:
-        app.logger.error("No file part")
+        LOG.error("No file part")
         return Response(status=HTTPStatus.UNPROCESSABLE_ENTITY)
 
     file = request.files["file"]
 
     if not file or file.filename == "":
-        app.logger.error("No file")
+        LOG.error("No file")
         return Response(status=HTTPStatus.UNPROCESSABLE_ENTITY)
 
     filename: str = secure_filename(file.filename)
@@ -68,10 +69,10 @@ def push():
 
         globs.CSVS.append(filepath)
 
-        app.logger.info("Successfully added %s", filename)
+        LOG.info("Successfully added %s", filename)
         return Response(status=HTTPStatus.OK)
 
-    app.logger.error("Not a CSV file")
+    LOG.error("Not a CSV file")
 
     return Response(status=HTTPStatus.UNPROCESSABLE_ENTITY)
 
@@ -80,7 +81,7 @@ def push():
 def merge():
     """Merge all CSVs uploaded."""
     if len(globs.CSVS) < 2:
-        app.logger.error("need more than 2 CSVs to merge")
+        LOG.error("need more than 2 CSVs to merge")
         return Response(status=HTTPStatus.UNPROCESSABLE_ENTITY)
 
     result: pd.DataFrame = merge_all(iter(globs.CSVS), "siren")
@@ -97,11 +98,10 @@ def merge():
 def reset():
     """Reset CSV files."""
     for path in globs.CSVS:
-        app.logger.info(f"Removed '{path.name}'")
+        LOG.info("Removed '%s'", {path.name})
         path.unlink()
 
     globs.CSVS = []
 
-    app.logger.info("Reset successfully")
-
+    LOG.info("Reset successfully")
     return Response(status=HTTPStatus.OK)

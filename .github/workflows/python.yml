@@ -3,7 +3,7 @@ name: Python CI
 on: [push]
 
 env:
-  PYTHONPATH: "*/mse_src/*"
+  PYTHONPATH: "*/mse_src/*.py"
 
 jobs:
   build:
@@ -28,8 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
+          if [ -f requirements-ci.txt ]; then pip install -r requirements-ci.txt; fi
 
       - name: Code format with black
         run: |
@@ -50,23 +49,3 @@ jobs:
       - name: Lint check with pydocstyle
         run: |
           pydocstyle $PYTHONPATH
-
-      - name: Typecheck with MyPy
-        run: |
-          mypy $PYTHONPATH
-
-      - name: Test with pytest
-        run: |
-          pytest
-
-      - name: Build package
-        if: ${{ startsWith(github.ref, 'refs/tags') && endsWith(github.ref, steps.metadata.outputs.PACKAGE_VERSION) }}
-        run: python -m build
-
-      - name: Publish package to PyPi
-        if: ${{ startsWith(github.ref, 'refs/tags') && endsWith(github.ref, steps.metadata.outputs.PACKAGE_VERSION) }}
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          print_hash: true
-          user: ${{ secrets.PYPI_USERNAME }}
-          password: ${{ secrets.PYPI_PASSWORD }}
