@@ -1,0 +1,14 @@
+name = "digit-recognition"
+project = "default"
+resource = "free"
+
+[code]
+location = "mse_src"
+docker="ghcr.io/cosmian/mse-tensorflow:20230228091041"
+python_application = "app:app"
+healthcheck_endpoint = "/health"
+
+[ssl]
+domain_name="demo.owner.com"
+private_key="key.pem"
+certificate="cert.pem"
