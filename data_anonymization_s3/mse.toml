@@ -1,0 +1,10 @@
+name = "data-anonymization-s3"
+project = "default"
+resource = "free"
+
+[code]
+location = "mse_src"
+docker = "ghcr.io/cosmian/mse-anonymization:20230228091120"
+python_application = "app:app"
+healthcheck_endpoint = "/health"
+secrets="secrets.json"
