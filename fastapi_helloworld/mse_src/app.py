@@ -1,3 +1,5 @@
+"""`Fastapi` example."""
+
 from http import HTTPStatus
 
 from fastapi import FastAPI, Response

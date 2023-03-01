@@ -1,16 +1,18 @@
-import os
-import json
+"""`Path` example."""
 
+import json
+import os
+from datetime import datetime
 from http import HTTPStatus
 from pathlib import Path
-from datetime import datetime
-from flask import Flask, Response
+
 from auth import check_token
+from flask import Flask, Response
 
 app = Flask(__name__)
 
 WORKFILE: Path = Path(os.getenv("HOME")) / "date.txt"
-SECRETS = json.loads(Path(os.getenv("SECRETS_PATH")).read_text())
+SECRETS = json.loads(Path(os.getenv("SECRETS_PATH")).read_text(encoding="utf-8"))
 
 
 @app.get("/health")
@@ -22,7 +24,7 @@ def health_check():
 @app.post("/")
 @check_token(SECRETS["write_token"])
 def write_date():
-    """A simple example of file writing."""
+    """Write a simple file."""
     WORKFILE.write_text(str(datetime.now()))
     return Response(response="Date file written successfully", status=HTTPStatus.OK)
 
@@ -30,7 +32,7 @@ def write_date():
 @app.route("/")
 @check_token(SECRETS["read_token"])
 def read_date():
-    """A simple example of file reading."""
+    """Read a simple file."""
     if not WORKFILE.exists():
         return Response(
             response="You should write before read", status=HTTPStatus.NOT_FOUND
