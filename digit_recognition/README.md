@@ -1,4 +1,4 @@
-# Digit recognition with trusted owner
+# Digit recognition for MSE
 
 The aim of this demo is to provide an app to perform digit recognition from a drawn canvas, based on a trained model, using `tensorflow` and `keras`.
 
