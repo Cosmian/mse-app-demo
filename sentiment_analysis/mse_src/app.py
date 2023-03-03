@@ -27,7 +27,7 @@ tokenizer = AutoTokenizer.from_pretrained(
 
 @app.post("/")
 def predict_sentiment():
-    """Predict sentiment"""
+    """Predict sentiment."""
     data: Optional[Any] = request.get_json(silent=True)
     if not data or not data["data"]:
         LOG.error("No data part")
