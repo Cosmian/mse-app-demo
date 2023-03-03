@@ -33,11 +33,11 @@ def predict_sentiment():
         LOG.error("No data part")
         return Response(status=HTTPStatus.UNPROCESSABLE_ENTITY)
 
-    phrase = data["data"]
+    data = data["data"]
     classifier = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
-    result = classifier(phrase)[0]
+    result = classifier(data)[0]
 
-    response = jsonify({"sentiment": f"{result['label']}"})
+    response = jsonify(result)
     return response
 
 

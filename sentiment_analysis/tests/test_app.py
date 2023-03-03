@@ -8,13 +8,13 @@ def test_recognition(url, certificate):
         f"{url}/", json={"data": "long and boring"}, verify=certificate
     )
     assert response.status_code == 200
-    assert response.json() == {"sentiment": "NEGATIVE"}
+    assert response.json() == {"label": "NEGATIVE", "score": 0.9924578666687012}
 
     response = requests.post(
-        f"{url}/", json={"data": "wonderfull movie"}, verify=certificate
+        f"{url}/", json={"data": "wonderful movie"}, verify=certificate
     )
     assert response.status_code == 200
-    assert response.json() == {"sentiment": "POSITIVE"}
+    assert response.json() == {"label": "POSITIVE", "score": 0.9942570328712463}
 
 
 def test_recognition_error(url, certificate):
