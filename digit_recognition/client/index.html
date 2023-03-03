@@ -38,8 +38,8 @@
         <form>
             <h1 class="h3 mb-3 fw-bold">Confidential Digit Recognition</h1>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="url" value="demo.cosmian.app" />
-                <label for="url">Insert your domain name</label>
+                <input type="text" class="form-control" id="url" value="xxx.cosmian.app" />
+                <label for="url">Domain name of your deployed app</label>
             </div>
             <div class="form-floating mb-3">
                 <canvas id='canvas' height=300 width=300 tabIndex=1 class="border focus:outline-none" />
@@ -106,12 +106,15 @@
         }
 
         $("#send").click(function () {
-            const url = "https://" + $("#url").val();
+            const url = "http://127.0.0.1:8080";
             const data = canvas?.toDataURL("image/png");
 
             fetch(url + "/", {
                 method: "POST",
-                body: JSON.stringify({ data: data }),
+                body: JSON.stringify({
+                    data: data,
+                    domain_name: $("#url").val(),
+                 }),
                 headers: {
                     "Content-Type": "application/json",
                 },
