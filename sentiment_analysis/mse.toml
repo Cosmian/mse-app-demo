@@ -4,6 +4,6 @@ resource = "free"
 
 [code]
 location = "mse_src"
-docker="ghcr.io/cosmian/mse-pytorch:20230228091413"
+docker="ghcr.io/cosmian/mse-nlp:20230228091156"
 python_application = "app:app"
 healthcheck_endpoint = "/health"

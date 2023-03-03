@@ -1,6 +1,6 @@
 # Sentiment analysis for MSE
 
-This demo allows to make a sentiment analysis from an string input.
+This demo performs a sentiment analysis from an string input.
 It uses a model build with `PyTorch` (lvwerra/distilbert-imdb - https://huggingface.co/lvwerra/distilbert-imdb), and `Transformers` from `Hugging face` to load it and perform a sentiment analysis.
 Model has been trained on imdb reviews dataset (https://huggingface.co/datasets/imdb)
 
@@ -39,7 +39,7 @@ $ # replace $APP_DOMAIN_NAME with your own app domaine name
 $ openssl s_client -showcerts -connect $APP_DOMAIN_NAME:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > cert.pem
 ```
 
-check that it runs in an Intel SGX enclave (not checking code fingerprint):
+You can also get the certificate and check it using:
 
 ```console
 $ mse verify $APP_DOMAIN_NAME

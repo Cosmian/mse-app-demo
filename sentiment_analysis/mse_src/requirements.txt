@@ -1,2 +1,2 @@
-transformers==4.15
 tokenizers==0.10.3
+Flask-Cors==3.0.10
