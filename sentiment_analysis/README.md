@@ -37,7 +37,7 @@ $ TEST_REMOTE_URL="https://$APP_DOMAIN_NAME" pytest
 Using gradio, you can run locally the given gradio interface :
 ```console
 $ pip install gradio
-$ gradio client.py
+$ gradio client/client.py
 ```
 
 And access the interface at the given local url.

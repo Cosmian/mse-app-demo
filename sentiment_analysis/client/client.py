@@ -57,7 +57,7 @@ with gr.Blocks() as demo:
     gr.Image(
         label="Usage flow",
         value="https://docs.cosmian.com/microservice_encryption/images/use.png",
-    )
+    ).style(height=400)
 
     gr.Markdown("## 1 | Microservice Encryption instance verification\n")
     gr.Markdown(
