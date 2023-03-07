@@ -1,6 +1,6 @@
 # Sentiment analysis for MSE
 
-This demo performs a sentiment analysis from an string input.
+This demo performs a sentiment analysis from a string input.
 It uses a model build with `PyTorch` (lvwerra/distilbert-imdb - https://huggingface.co/lvwerra/distilbert-imdb), and `Transformers` from `Hugging face` to load it and perform a sentiment analysis.
 Model has been trained on imdb reviews dataset (https://huggingface.co/datasets/imdb)
 
@@ -31,6 +31,19 @@ $ TEST_REMOTE_URL="https://$APP_DOMAIN_NAME" pytest
 ```
 
 ## Use it
+
+### With gradio
+
+Using gradio, you can run locally the given gradio interface :
+```console
+$ pip install gradio
+$ gradio client/client.py
+```
+
+And access the interface at the given local url.
+
+
+### Using curl
 
 Get the SSL certificate (without checking the trustworthiness of the enclave):
 
