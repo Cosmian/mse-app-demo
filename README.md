@@ -9,6 +9,13 @@ Each example contains:
 
 You can read the full [documentation](https://docs.cosmian.com/microservice_encryption/getting_started/) for more details about MSE and `mse-cli`.
 
+Clone the repository as follow: 
+
+```console
+# apt install git-lfs
+$ git clone https://github.com/Cosmian/mse-app-examples
+```
+
 These examples have been generated using:
 
 ```console
@@ -41,17 +48,17 @@ $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 
 ## Examples list
 
-|                                   Name                                   |                                                         Usage scenario                                                          |
-| :----------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: |
-|                    [helloworld](helloworld/README.md)                    | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
-|            [fastapi-helloworld](fastapi_helloworld/README.md)            | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
-|                    [merge join](merge_join/README.md)                    | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
-|                          [path](path/README.md)                          | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
-|             [yaos millionaires](yaos_millionaires/README.md)             | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
-| [yaos millionaires trust owner](yaos_millionaires_trust_owner/README.md) |     [App Owner trusted](https://docs.cosmian.com/microservice_encryption/scenarios/#app-owner-trusted-fully-encrypted-saas)     |
-|         [data_anonymization_s3](data_anonymization_s3/README.md)         | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
-|             [digit recognition (tensorflow)](digit_recognition/README.md)             | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
-|             [sentiment analysis (pytorch & transformers)](sentiment_analysis/README.md)           | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+|                                    Name                                     |                                                         Usage scenario                                                          |
+| :-------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: |
+|                     [helloworld](helloworld/README.md)                      | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+|             [fastapi-helloworld](fastapi_helloworld/README.md)              | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+|                     [merge join](merge_join/README.md)                      | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+|                           [path](path/README.md)                            | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+|              [yaos millionaires](yaos_millionaires/README.md)               | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+|  [yaos millionaires trust owner](yaos_millionaires_trust_owner/README.md)   |     [App Owner trusted](https://docs.cosmian.com/microservice_encryption/scenarios/#app-owner-trusted-fully-encrypted-saas)     |
+|          [data_anonymization_s3](data_anonymization_s3/README.md)           | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+|        [digit recognition (tensorflow)](digit_recognition/README.md)        | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
+| [sentiment analysis (pytorch & transformers)](sentiment_analysis/README.md) | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
 
 ## Annexes
 

@@ -1,6 +1,6 @@
 # Yao's millionaires for MSE
 
-This demo allows to share integers and get the position of the maximum added interger.
+This example allows to share integers and get the position of the maximum added interger.
 No one see the set of integers, only the position of the user who added the highest number is known.
 
 ## Test locally
