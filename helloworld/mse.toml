@@ -1,9 +1,9 @@
-name="helloworld"
-project="default"
-hardware="512m-eu-001"
+name = "helloworld"
+project = "default"
+hardware = "4g-eu-001"
 
 [code]
-location="mse_src"
-python_application="app:app"
-healthcheck_endpoint="/health"
-docker="ghcr.io/cosmian/mse-flask:20230228091325"
+location = "mse_src"
+python_application = "app:app"
+healthcheck_endpoint = "/health"
+docker = "ghcr.io/cosmian/mse-flask:20230228091325"
