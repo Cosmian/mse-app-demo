@@ -1,6 +1,6 @@
 # Merge join for MSE
 
-This demo allows to merge multiple CSV files on a specific column (`siren` in our case).
+This example allows to merge multiple CSV files on a specific column (`siren` in our case).
 No one see any CSV file but anyone can see the merge of all CSV files submitted.
 
 ## Test locally

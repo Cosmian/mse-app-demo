@@ -1,8 +1,10 @@
 # Sentiment analysis for MSE
 
-This demo performs a sentiment analysis from a string input.
+This example performs a sentiment analysis from an string input.
 It uses a model build with `PyTorch` (lvwerra/distilbert-imdb - https://huggingface.co/lvwerra/distilbert-imdb), and `Transformers` from `Hugging face` to load it and perform a sentiment analysis.
 Model has been trained on imdb reviews dataset (https://huggingface.co/datasets/imdb)
+
+This example requires at least 8GB to run. 
 
 ## Test locally
 

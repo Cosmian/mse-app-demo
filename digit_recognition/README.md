@@ -1,6 +1,6 @@
 # Digit recognition for MSE
 
-The aim of this demo is to provide an app to perform digit recognition from a drawn canvas, based on a trained model, using `tensorflow` and `keras`.
+The aim of this example is to provide an app to perform digit recognition from a drawn canvas, based on a trained model, using `tensorflow` and `keras`.
 
 ## Deploy your application
 
