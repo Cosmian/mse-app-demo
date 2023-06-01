@@ -1,6 +1,6 @@
 name = "sentiment_analysis"
 project = "default"
-hardware="8g-eu-001"
+hardware="4g-eu-001"
 
 [code]
 location = "mse_src"
