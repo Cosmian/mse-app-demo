@@ -1,14 +1,19 @@
 name="yaos-millionaires-trusted"
-project="default"
-hardware="4g-eu-001"
+python_application = "app:app"
+healthcheck_endpoint = "/health"
+tests_cmd = "pytest"
+tests_requirements = [
+    "intel-sgx-ra",
+    "pytest==7.2.0",
+]
 
-[code]
-location="./mse_src"
-python_application="app:app"
-healthcheck_endpoint="/health"
-docker="ghcr.io/cosmian/mse-flask:20230228091325"
+[cloud]
+project = "default"
+hardware = "4g-eu-001"
+location = "mse_src"
+docker = "ghcr.io/cosmian/mse-flask:20230228091325"
 
-[ssl]
+[cloud.ssl]
 domain_name="demo.owner.com"
 private_key="key.pem"
 certificate="cert.pem"

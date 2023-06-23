@@ -1,9 +1,14 @@
 name = "sentiment_analysis"
-project = "default"
-hardware="4g-eu-001"
-
-[code]
-location = "mse_src"
-docker="ghcr.io/cosmian/mse-nlp:20230228091156"
 python_application = "app:app"
 healthcheck_endpoint = "/health"
+tests_cmd = "pytest"
+tests_requirements = [
+    "intel-sgx-ra",
+    "pytest==7.2.0",
+]
+
+[cloud]
+project = "default"
+hardware = "4g-eu-001"
+location = "mse_src"
+docker="ghcr.io/cosmian/mse-nlp:20230228091156"
