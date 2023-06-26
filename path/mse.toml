@@ -1,4 +1,4 @@
-name="path"
+name = "path"
 python_application = "app:app"
 healthcheck_endpoint = "/health"
 tests_cmd = "pytest"

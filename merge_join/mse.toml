@@ -1,4 +1,4 @@
-name="merge_join"
+name = "merge_join"
 python_application = "app:app"
 healthcheck_endpoint = "/health"
 tests_cmd = "pytest"

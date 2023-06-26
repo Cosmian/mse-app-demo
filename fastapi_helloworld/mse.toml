@@ -1,4 +1,4 @@
-name="fastapi-helloworld"
+name = "fastapi-helloworld"
 python_application = "app:app"
 healthcheck_endpoint = "/health"
 tests_cmd = "pytest"
@@ -11,4 +11,4 @@ tests_requirements = [
 project = "default"
 hardware = "4g-eu-001"
 location = "mse_src"
-docker="ghcr.io/cosmian/mse-fastapi:20230228091443"
+docker = "ghcr.io/cosmian/mse-fastapi:20230228091443"
