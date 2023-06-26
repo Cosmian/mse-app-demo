@@ -11,4 +11,4 @@ tests_requirements = [
 project = "default"
 hardware = "4g-eu-001"
 location = "mse_src"
-docker="ghcr.io/cosmian/mse-nlp:20230228091156"
+docker = "ghcr.io/cosmian/mse-nlp:20230228091156"

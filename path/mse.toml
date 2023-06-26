@@ -11,5 +11,5 @@ tests_requirements = [
 project = "default"
 hardware = "4g-eu-001"
 location = "mse_src"
-docker="ghcr.io/cosmian/mse-flask:20230228091325"
-secrets="secrets.json"
+docker = "ghcr.io/cosmian/mse-flask:20230228091325"
+secrets = "secrets.json"
