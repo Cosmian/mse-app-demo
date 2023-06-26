@@ -16,4 +16,4 @@ docker = "ghcr.io/cosmian/mse-flask:20230228091325"
 [cloud.ssl]
 domain_name = "demo.owner.com"
 private_key = "key.pem"
-certificate="cert.pem"
+certificate = "cert.pem"
