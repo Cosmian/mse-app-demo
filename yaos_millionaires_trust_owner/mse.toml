@@ -10,7 +10,8 @@ tests_requirements = [
 [cloud]
 project = "default"
 hardware = "4g-eu-001"
-location = "mse_src"
+code = "mse_src"
+tests = "tests"
 docker = "ghcr.io/cosmian/mse-flask:20230228091325"
 
 [cloud.ssl]

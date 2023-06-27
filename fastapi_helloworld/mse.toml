@@ -10,5 +10,6 @@ tests_requirements = [
 [cloud]
 project = "default"
 hardware = "4g-eu-001"
-location = "mse_src"
+code = "mse_src"
+tests = "tests"
 docker = "ghcr.io/cosmian/mse-fastapi:20230228091443"
