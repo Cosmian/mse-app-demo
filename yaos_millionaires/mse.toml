@@ -1,9 +1,15 @@
-name="yaos_millionaires"
-project="default"
-hardware="4g-eu-001"
+name = "yaos_millionaires"
+python_application = "app:app"
+healthcheck_endpoint = "/health"
+tests_cmd = "pytest"
+tests_requirements = [
+    "intel-sgx-ra",
+    "pytest==7.2.0",
+]
 
-[code]
-location="./mse_src"
-python_application="app:app"
-healthcheck_endpoint="/health"
-docker="ghcr.io/cosmian/mse-flask:20230228091325"
+[cloud]
+project = "default"
+hardware = "4g-eu-001"
+code = "mse_src"
+tests = "tests"
+docker = "ghcr.io/cosmian/mse-flask:20230228091325"

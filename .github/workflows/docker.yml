@@ -1,0 +1,76 @@
+name: MSE examples docker image
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release or beta?"
+        required: false
+        default: ""
+        type: choice
+        options:
+          - ""
+          - "-beta"
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+
+    strategy:
+      matrix:
+        include:
+          - directory: "data_anonymisation_s3"
+            image: "ghcr.io/cosmian/mse-anonymization${{ inputs.version }}"
+          - directory: "digit_recognition"
+            image: "ghcr.io/cosmian/mse-tensorflow${{ inputs.version }}"
+          - directory: "fastapi_helloworld"
+            image: "ghcr.io/cosmian/mse-fastapi${{ inputs.version }}"
+          - directory: "helloworld"
+            image: "ghcr.io/cosmian/mse-flask${{ inputs.version }}"
+          - directory: "merge_join"
+            image: "ghcr.io/cosmian/mse-ds${{ inputs.version }}"
+          - directory: "sentiment_analysis"
+            image: "ghcr.io/cosmian/mse-nlp${{ inputs.version }}"
+    steps:
+      - name: Build date
+        id: build_date
+        run: |
+          echo "BUILD_DATE=$(date -u +'%Y%m%d%H%M%S')" >> $GITHUB_OUTPUT
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Login to GitHub Packages
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Docker metadata
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ matrix.image }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: "{{defaultContext}}:${{ matrix.directory }}"
+          push: ${{ contains(github.ref, 'main') }}
+          tags: |
+            ${{ matrix.image }}:${{ github.sha }}
+            ${{ matrix.image }}:${{ steps.build_date.outputs.BUILD_DATE }}
+          labels: ${{ steps.meta.outputs.labels }}
