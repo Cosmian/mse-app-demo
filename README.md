@@ -60,6 +60,19 @@ $ TEST_REMOTE_URL="https://<app_domain_name>" pytest
 |        [digit recognition (tensorflow)](digit_recognition/README.md)        | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
 | [sentiment analysis (pytorch & transformers)](sentiment_analysis/README.md) | [Zero Trust](https://docs.cosmian.com/microservice_encryption/scenarios/#zero-trust-collaborative-confidential-computation-ccc) |
 
+## Dockers list
+
+This repository also provides some allowed mse dockers. See [the packages](https://github.com/orgs/Cosmian/packages?repo_name=mse-app-examples) to get the up-to-date references. The dockerfile are written in these following examples:
+
+|       Name        |                        Dockerfile                         |
+| :---------------: | :-------------------------------------------------------: |
+| mse-anonymization | [data_anonymization_s3](data_anonymization_s3/Dockerfile) |
+|      mse-ds       |            [merge_join](merge_join/Dockerfile)            |
+|    mse-fastapi    |    [fastapi_helloworld](fastapi_helloworld/Dockerfile)    |
+|     mse-flask     |            [helloworld](helloworld/Dockerfile)            |
+|      mse-nlp      |    [sentiment_analysis](sentiment_analysis/Dockerfile)    |
+|  mse-tensorflow   |     [digit_recognition](digit_recognition/Dockerfile)     |
+
 ## Annexes
 
 Here a way to tar an example to be run inside an [mse-docker](https://github.com/Cosmian/mse-docker-base):
