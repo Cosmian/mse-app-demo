@@ -1,7 +1,8 @@
 from io import StringIO
-import requests
 from pathlib import Path
+
 import pandas as pd
+import requests
 
 
 def test_send_read_data(url, certificate):

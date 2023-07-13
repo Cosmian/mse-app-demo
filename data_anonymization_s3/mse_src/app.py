@@ -10,7 +10,7 @@ from typing import List, Optional
 import boto3
 import pandas as pd
 from auth import check_token
-from cosmian_lib_anonymization import anonymize_dataset
+from cosmian_anonymization import anonymize_dataframe
 from flask import Flask, Response, make_response, request, send_file
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
@@ -36,7 +36,7 @@ def anonymization(config_file_path: Path, data_path: Path) -> pd.DataFrame:
     """Anonymization function."""
     config = json.loads(config_file_path.read_bytes())
     df: pd.DataFrame = pd.read_csv(data_path, delimiter=";")
-    df_result = anonymize_dataset(df, config)
+    df_result = anonymize_dataframe(df, config)
     return df_result
 
 
