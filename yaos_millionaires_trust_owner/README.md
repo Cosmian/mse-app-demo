@@ -26,7 +26,7 @@ This domain name will be used for `mse deploy`.
 ## Deploy your application
 
 ```console
-$ mse deploy
+$ mse cloud deploy
 ```
 
 Your application is now ready to be used.
@@ -34,7 +34,7 @@ Your application is now ready to be used.
 ## Test it
 
 ```console
-$ TEST_REMOTE_URL="https://$APP_DOMAIN_NAME" pytest
+$ mse cloud test <APP_ID>
 ```
 
 ## Use it

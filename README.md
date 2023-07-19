@@ -19,31 +19,27 @@ $ git clone https://github.com/Cosmian/mse-app-examples
 These examples have been generated using:
 
 ```console
-$ mse scaffold $NAME
+$ mse cloud scaffold $NAME
 ```
 
 You can test locally an app doing:
 
 ```console
 $ cd example_name
-$ mse test
-$ # From another terminal:
-$ cd example_name
-$ pytest
+$ mse cloud localtest
 ```
 
 You can quickly deploy this app doing:
 
 ```console
 $ cd example_name
-$ mse deploy
+$ mse cloud deploy
 ```
 
 And test it:
 
 ```console
-$ cd example_name
-$ TEST_REMOTE_URL="https://<app_domain_name>" pytest
+$ mse cloud test <APP_ID>
 ```
 
 ## Examples list

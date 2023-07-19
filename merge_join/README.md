@@ -8,17 +8,13 @@ No one see any CSV file but anyone can see the merge of all CSV files submitted.
 It's a good practice before deploying an app into MSE to test it locally:
 
 ```console
-$ mse test
-$ # push your CSV file
-$ curl -F "file=@/path/to/csv-file" http://127.0.0.1:5000/
-$ # get result of merge on column "siren"
-$ curl http://127.0.0.1:5000/
+$ mse localtest
 ```
 
 ## Deploy your application
 
 ```console
-$ mse deploy  # in same folder as mse.toml
+$ mse cloud deploy  # in same folder as mse.toml
 ```
 
 Your application is now ready to be used.
@@ -35,7 +31,7 @@ $ openssl s_client -showcerts -connect $APP_DOMAIN_NAME:443 </dev/null 2>/dev/nu
 check that it runs in an Intel SGX enclave (not checking code fingerprint):
 
 ```console
-$ mse verify $APP_DOMAIN_NAME
+$ mse cloud verify "$APP_DOMAIN_NAME"
 ```
 
 then just query your trusted microservice:

@@ -8,7 +8,7 @@ Basic example of an mse application working with a self-signed certificate on a 
 ## Deploy your application
 
 ```console
-$ mse deploy 
+$ mse cloud deploy 
 ```
 
 Your application is now ready to be used
@@ -16,7 +16,7 @@ Your application is now ready to be used
 ## Test it
 
 ```console
-$ TEST_REMOTE_URL="https://$APP_DOMAIN_NAME" pytest
+$ mse cloud test <APP_ID>
 ```
 
 ## Use it 
@@ -24,7 +24,7 @@ $ TEST_REMOTE_URL="https://$APP_DOMAIN_NAME" pytest
 You can get the certificate and check it using:
 
 ```console
-$ mse verify "$APP_DOMAIN_NAME"
+$ mse cloud verify "$APP_DOMAIN_NAME"
 ```
 
 You can now query the microservice:

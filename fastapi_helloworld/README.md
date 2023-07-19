@@ -5,12 +5,10 @@ Basic example of an mse application working with a self-signed certificate on a 
 - A simple helloworld fastAPI application
 - The mse app config file
 
-***WARNING***: the command `mse test` is currently not working for fastAPI.
-
 ## Deploy your application
 
 ```console
-$ mse deploy 
+$ mse cloud deploy 
 ```
 
 Your application is now ready to be used
@@ -20,7 +18,7 @@ Your application is now ready to be used
 You can get the certificate and check it using:
 
 ```console
-$ mse verify $APP_DOMAIN_NAME
+$ mse cloud verify "$APP_DOMAIN_NAME"
 ```
 
 You can now query the microservice:
