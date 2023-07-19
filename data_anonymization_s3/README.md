@@ -20,7 +20,7 @@ Create an AWS S3 storage and edit the connection information in `mse_src/app.py`
 ## Deploy your application
 
 ```console
-$ mse deploy 
+$ mse cloud deploy 
 ```
 
 Your application is now ready to be used
@@ -28,7 +28,7 @@ Your application is now ready to be used
 ## Test it
 
 ```console
-$ TEST_REMOTE_URL="https://$APP_DOMAIN_NAME" pytest
+$ mse cloud test <APP_ID>
 ```
 
 ## Use it
@@ -36,7 +36,7 @@ $ TEST_REMOTE_URL="https://$APP_DOMAIN_NAME" pytest
 You can get the certificate and check it using:
 
 ```console
-$ mse verify "$APP_DOMAIN_NAME"
+$ mse cloud verify "$APP_DOMAIN_NAME"
 ```
 
 ### Upload the data to anonymize

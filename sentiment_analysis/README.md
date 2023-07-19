@@ -9,7 +9,7 @@ Model has been trained on imdb reviews dataset (https://huggingface.co/datasets/
 It's a good practice before deploying an app into MSE to test it locally:
 
 ```console
-$ mse test
+$ mse cloud localtest
 $ # push an integer
 $ curl -X POST -H 'Content-Type: application/json' -d '{"data": "great and fun"}' http://127.0.0.1:5000/
 $ # get the sentiment from the given phrase
@@ -19,7 +19,7 @@ $ curl http://127.0.0.1:5000/
 ## Deploy your application
 
 ```console
-$ mse deploy  # in same folder as mse.toml
+$ mse cloud deploy  # in same folder as mse.toml
 ```
 
 Your application is now ready to be used.
@@ -27,7 +27,7 @@ Your application is now ready to be used.
 ## Test it
 
 ```console
-$ TEST_REMOTE_URL="https://$APP_DOMAIN_NAME" pytest
+$ mse cloud test <APP_ID>
 ```
 
 ## Use it
@@ -55,7 +55,7 @@ $ openssl s_client -showcerts -connect $APP_DOMAIN_NAME:443 </dev/null 2>/dev/nu
 You can also get the certificate and check it using:
 
 ```console
-$ mse verify $APP_DOMAIN_NAME
+$ mse cloud verify $APP_DOMAIN_NAME
 ```
 
 then just query your trusted microservice:
