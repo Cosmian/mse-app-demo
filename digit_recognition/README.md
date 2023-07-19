@@ -41,7 +41,7 @@ $ openssl s_client -showcerts -connect $APP_DOMAIN_NAME:443 </dev/null 2>/dev/nu
 You can also get the certificate and check it using:
 
 ```console
-$ mse cloud verify $APP_DOMAIN_NAME
+$ mse cloud verify "$APP_DOMAIN_NAME"
 ```
 
 then just query your trusted microservice with the given client:
