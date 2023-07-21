@@ -5,6 +5,7 @@ tests_cmd = "pytest"
 tests_requirements = [
     "intel-sgx-ra",
     "pytest==7.2.0",
+    "boto3==1.26",
 ]
 
 [cloud]
@@ -12,5 +13,5 @@ project = "default"
 hardware = "4g-eu-001"
 code = "mse_src"
 tests = "tests"
-docker = "ghcr.io/cosmian/mse-anonymization:20230720104849"
+docker = "ghcr.io/cosmian/mse-anonymization:20230721121707"
 secrets = "secrets.json"
