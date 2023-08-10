@@ -8,12 +8,12 @@ If you want to test with MSE:
 
 ```console
 $ # write SGX self-signed certificate to /tmp
-$ openssl s_client -showcerts -connect XXX.cosmian.app:443 </dev/null 2>/dev/null | openssl x509 -outform PEM >/tmp/cert.pem
+$ openssl s_client -showcerts -connect XXX.cosmian.io:443 </dev/null 2>/dev/null | openssl x509 -outform PEM >/tmp/cert.pem
 $ # install intel-sgx-ra to do remote attestation
 $ pip3 install intel-sgx-ra
 $ sgx-ra-verify certificate --path /tmp/cert.pem  # SGX Remote Attestation
 $ # run with self-signed certificate as CA bundle
-$ deno run --cert /tmp/cert.pem --allow-net --allow-read --allow-write client.ts https://XXX.cosmian.app
+$ deno run --cert /tmp/cert.pem --allow-net --allow-read --allow-write client.ts https://XXX.cosmian.io
 ```
 
 */
@@ -33,7 +33,7 @@ async function push(url: string, filePath: string) {
   const f = await Deno.readFile(filePath);
   const file = new File([f], fileName);
   const form = new FormData();
-  
+
   form.append("file", file, fileName);
 
   const response = await fetch(url, {
