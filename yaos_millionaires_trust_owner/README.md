@@ -9,7 +9,7 @@ In that scenario, the app owner provides the SSL certificate related to its doma
 [certificate]
 private_key="key.pem"
 certificate="cert.pem"
-domain_name="demo.owner.app"
+domain_name="demo.owner.io"
 ```
 
 You need a valid certificate signed by a trust authority if you want your microservice to work in web browsers.
@@ -17,10 +17,10 @@ You need a valid certificate signed by a trust authority if you want your micros
 As an example, you can use ACME protocol and DNS-01 method with Let's Encrypt to get a trusted certificate:
 
 ```console
-$ sudo certbot certonly --dns-ovh --dns-ovh-credentials ovhapi.conf -d demo.owner.app -m tech@owner.com -n --agree-tos
+$ sudo certbot certonly --dns-ovh --dns-ovh-credentials ovhapi.conf -d demo.owner.io -m tech@owner.com -n --agree-tos
 ```
 
-Also add a new `CNAME` record in your DNS registry for `demo.owner.app` to `proxy.cosmian.com` prior to the app deployment.
+Also add a new `CNAME` record in your DNS registry for `demo.owner.io` to `proxy.cosmian.com` prior to the app deployment.
 This domain name will be used for `mse deploy`.
 
 ## Deploy your application
