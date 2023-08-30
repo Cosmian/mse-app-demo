@@ -1,6 +1,6 @@
 # Deps used by the examples
 boto3==1.26
-cosmian-anonymization==1.2.0
+cosmian-anonymization==1.2.2
 fastapi==0.92.0
 flask==2.2.2
 Flask-Cors==3.0.10
