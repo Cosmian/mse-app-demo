@@ -1,15 +1,15 @@
-# MSE App Examples
+# Cosmian Enclave applications examples
 
-You can find several app examples runnable in a MSE architecture.
+This repository contains several app examples runnable in a Cosmian Enclave (formerly MSE) architecture.
 
 Each example contains:
-- A file `mse.toml` which is the configuration of the MSE app.
-- A folder `mse_src` which is the code to run inside the MSE node.
-- A folder `test` which enables you to unittest your application locally or remotly.
+- A file `mse.toml`, which is the configuration of the MSE app.
+- A folder `mse_src` is the code to run inside the MSE node.
+- A folder `test` enables you to unit test your application locally or remotely.
 
-You can read the full [documentation](https://docs.cosmian.com/microservice_encryption/getting_started/) for more details about MSE and `mse-cli`.
+Read the full [documentation](https://docs.cosmian.com/microservice_encryption/getting_started/) for more details about MSE and `mse-cli`.
 
-Clone the repository as follow: 
+Clone the repository as follows: 
 
 ```console
 # apt install git-lfs
